@@ -1,0 +1,271 @@
+.body {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 210px auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "head head"
+    "card flow"
+  ;
+
+  .head {
+    grid-area: head;
+    font-size: var(--body-text-x-larger);
+    padding: .5rem;
+    margin: 1rem;
+    margin-bottom: .5rem;
+  }
+
+  .card {
+    grid-area: card;
+    // width: 210px;
+    padding: 1rem;
+
+
+
+    .money {
+      font-size: var(--body-text-larger);
+      padding: .5rem;
+      margin-bottom: .5rem;
+      margin-top: 1rem;
+    }
+
+    .ticket-card {
+      background: #0177FB;
+      border-radius: 11.7px;
+      padding: 1rem;
+      color: #fff;
+
+      .visa {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .card-number {
+        font-size: var(--body-text-small);
+      }
+
+      .name-label {
+        font-size: var(--body-text-smaller);
+      }
+
+      .name {
+        margin-bottom: 2rem;
+        font-size: var(--body-text-large);
+      }
+
+      .date {
+        font-size: var(--body-text-smallest);
+      }
+    }
+
+    .money-card {
+      display: flex;
+      padding: 1rem;
+      box-shadow: 0px 10.9688px 21.9375px rgba(122, 122, 122, 0.2);
+      border-radius: 10.2375px;
+      justify-content: space-between;
+      align-content: center;
+
+      .debit {
+        // display: flex;
+        align-self: center;
+        font-size: var(--body-text-smaller);
+      }
+
+      .debit-box {
+        display: flex;
+        align-items: baseline;
+        // align-content: center;
+        justify-content: space-between;
+        gap: .5rem;
+      }
+
+      .amount {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: .5rem;
+        font-size: var(--body-text);
+      }
+    }
+
+    .amount-card {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      box-shadow: 0px 10.9688px 21.9375px rgba(122, 122, 122, 0.2);
+      border-radius: 10.2375px;
+
+      .amount {
+        display: flex;
+
+        .input {
+          margin-left: .5rem;
+          color: #798BA3;
+          font-size: var(--body-text-small);
+        }
+      }
+
+      .flags-box {
+        margin-top: .5rem;
+        display: flex;
+        justify-content: space-between;
+        font-size: var(--heading-5);
+
+        .money-heading {
+          margin-left: .3rem;
+          padding-right: .3rem;
+          border-right: 1px solid #0177FD;
+        }
+
+        .dollar {
+          color: #A4B4CB;
+        }
+      }
+    }
+
+    .astrid {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .hayes {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .name {
+        font-size: var(--body-text);
+        margin-left: .2rem;
+      }
+    }
+
+    .send-btn {
+      background: #0177FB;
+      border-radius: 16.0875px;
+      color: #FFFFFF;
+      font-size: var(--body-text);
+      margin-top: 1rem;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .quick-transfer {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #FFFFFF;
+      border: 0.566969px solid #E8E8E8;
+      border-radius: 10.2375px;
+
+      .transfer {
+        font-size: var(--body-text);
+      }
+
+      .money-card-box {
+        display: flex;
+        padding-top: 1rem;
+        // box-shadow: 0px 10.9688px 21.9375px rgba(122, 122, 122, 0.2);
+        border-radius: 10.2375px;
+        justify-content: space-between;
+        align-content: center;
+
+        .debit {
+          // display: flex;
+          align-self: center;
+          font-size: var(--body-text-smaller);
+        }
+
+        .debit-box {
+          display: flex;
+          align-items: baseline;
+          // align-content: center;
+          justify-content: space-between;
+          gap: .5rem;
+        }
+
+        .amount {
+          display: flex;
+          align-items: baseline;
+          justify-content: space-between;
+          gap: .5rem;
+          font-size: var(--body-text);
+        }
+      }
+
+      .amount-card-box {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        padding: .5rem;
+        box-shadow: 0px 10.9688px 21.9375px rgba(122, 122, 122, 0.2);
+        border-radius: 10.2375px;
+
+        .amount {
+          display: flex;
+
+          .input {
+            // margin-left: .5rem;
+            color: #798BA3;
+            font-size: var(--body-text-small);
+          }
+        }
+
+        .flags-box {
+          margin-top: .5rem;
+          display: flex;
+          justify-content: space-between;
+          font-size: var(--body-text-large);
+
+          .money-heading {
+            // margin-left: .3rem;
+            padding-right: .3rem;
+            border-right: 1px solid #0177FD;
+          }
+
+          .dollar {
+            color: #A4B4CB;
+          }
+        }
+      }
+
+      .icons {
+        display: grid;
+        grid-template-columns: repeat(4, 40px);
+        column-gap: 5px;
+        grid-template-rows: auto;
+        overflow-x: auto;
+        // flex-direction: row;
+        grid-template-areas: "send receive invoicing more";
+        font-size: var(--body-text-small);
+        text-align: center;
+
+        .send {
+          grid-area: send;
+        }
+
+        .receive {
+          grid-area: receive;
+        }
+
+        .invoicing {
+          grid-area: invoicing;
+        }
+
+        .more {
+          grid-area: more;
+        }
+      }
+
+    }
+
+
+  }
+
+  .flow {
+    grid-area: flow;
+  }
+}

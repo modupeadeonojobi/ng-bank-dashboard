@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+}
+
+:root {
+  --body-text-x-larger: 18px;
+  --body-text-larger: 16px;
+  --body-text-large: 14px;
+  --body-text: 12px;
+  --body-text-small: 10px;
+  --body-text-smaller: 9px;
+  --body-text-smallest: 8px;
+
+  --heading-5: 21px;
+}
