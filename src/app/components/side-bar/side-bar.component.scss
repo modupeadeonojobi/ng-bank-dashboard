@@ -1,3 +1,5 @@
+@import "src/partials/_variables";
+
 .content {
   position: fixed;
   border-right: 1px solid #E8ECF5;
@@ -28,7 +30,7 @@
     margin-bottom: 1rem;
 
     li {
-      font-size: var(--body-text);
+      font-size: $body-text;
       line-height: 18px;
       padding: .5rem;
       margin: .5rem;
@@ -51,19 +53,16 @@
         display: flex;
         justify-content: center;
         align-content: center;
-        background-color: #0177FD;
-        border-radius: 10px;
-        padding-left: 6px;
-        padding-right: 6px;
-        padding-top: 2px;
-        padding-bottom: 2px;
-        color: #fff;
+        background-color: $brand-primary;
+        border-radius: $border-radius-circular;
+        padding: .3rem .6rem;
+        color: $color-white;
         margin-left: 1.8rem;
       }
     }
 
     li.active {
-      background: #E5F1FF;
+      background: $brand-primary-light;
       border-radius: 4.3875px;
       margin-left: -0.2rem;
 

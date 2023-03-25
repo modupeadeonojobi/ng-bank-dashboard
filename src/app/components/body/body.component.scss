@@ -1,3 +1,50 @@
+@import "src/partials/_variables";
+
+%body-card-san-flex {
+  padding: 1rem;
+  box-shadow: $body-box-shadow;
+  border-radius: 10.2375px;
+}
+
+%body-card {
+  @extend %body-flexbox;
+  @extend %body-card-san-flex;
+  align-content: center;
+}
+
+%body-heading {
+  .heading {
+    @extend %body-flexbox;
+    margin-bottom: 1rem;
+
+    .title {
+      line-height: 17px;
+      font-weight: bold;;
+    }
+  }
+}
+
+%body-flexbox {
+  display: flex;
+  justify-content: space-between;
+}
+
+%body-chevron {
+  width: 0.5rem;
+  height: 1rem;
+  margin-top: .6rem;
+}
+
+%noti-indicator {
+  position: absolute;
+  padding: .2rem;
+  background-color: $brand-primary;
+  border-radius: $border-radius-circular;
+  right: 5rem;
+  top: 1rem;
+}
+
+
 .body {
   display: grid;
   min-height: 90vh;
@@ -6,15 +53,29 @@
   grid-template-areas: "head head" "card flow";
  
   .head {
+    @extend %body-flexbox;
+    justify-content: fl;
     grid-area: head;
-    font-size: var(--body-text-x-larger);
+    font-size: $body-text-x-larger;
     padding: .5rem;
-    margin: 1rem;
-    margin-bottom: .5rem;
+    margin: 1rem 2rem;
     position: sticky;
     top: 0;
     z-index: 999;
-    background: #fff;
+    background: $color-white;
+    width: 95%;
+
+    & .icons {
+      img:nth-child(2) {
+        position: relative;
+        padding: .3rem 2rem;
+      }
+
+      span {
+        @extend %noti-indicator;
+
+      }
+    }
   }
 
   .card {
@@ -24,66 +85,58 @@
     padding-top: 0;
 
     .money {
-      font-size: var(--body-text-larger);
+      font-size: $body-text-larger;
       padding: .5rem;
       margin-top: 1rem;
     }
 
     .ticket-card {
-      background: #0177FB;
+      background: $brand-primary;
       border-radius: 11.7px;
       padding: 1rem;
-      color: #fff;
+      color: $color-white;
 
       .visa {
-        display: flex;
-        justify-content: space-between;
+        @extend %body-flexbox;
       }
 
       .card-number {
-        font-size: var(--body-text-small);
+        font-size: $body-text-small;
       }
 
       .name-label {
-        font-size: var(--body-text-smaller);
+        font-size: $body-text-smaller
       }
 
       .name {
         margin-bottom: 2rem;
-        font-size: var(--body-text-large);
+        font-size: $body-text-large
       }
 
       .date {
-        font-size: var(--body-text-smallest);
+        font-size: $body-text-smallest;
       }
     }
 
     .money-card {
-      display: flex;
-      padding: 1rem;
-      box-shadow: 0px 10.9688px 21.9375px rgba(122, 122, 122, 0.2);
-      border-radius: 10.2375px;
-      justify-content: space-between;
-      align-content: center;
-
+      @extend %body-card;
+  
       .debit {
         align-self: center;
-        font-size: var(--body-text-smaller);
+        font-size: $body-text-smaller;
       }
 
       .debit-box {
-        display: flex;
+        @extend %body-flexbox;
         align-items: baseline;
-        justify-content: space-between;
         gap: .5rem;
       }
 
       .amount {
-        display: flex;
+        @extend %body-flexbox;
         align-items: baseline;
-        justify-content: space-between;
         gap: .5rem;
-        font-size: var(--body-text);
+        font-size: $body-text;
       }
     }
 
@@ -92,7 +145,7 @@
       display: flex;
       flex-direction: column;
       padding: 1rem;
-      box-shadow: 0px 10.9688px 21.9375px rgba(122, 122, 122, 0.2);
+      box-shadow: $body-box-shadow;
       border-radius: 10.2375px;
 
       .amount {
@@ -101,51 +154,48 @@
         .input {
           margin-left: .5rem;
           color: #798BA3;
-          font-size: var(--body-text-small);
+          font-size: $body-text-small;
         }
       }
 
       .flags-box {
         margin-top: .5rem;
-        display: flex;
-        justify-content: space-between;
-        font-size: var(--heading-5);
+        @extend %body-flexbox;
+        font-size: $heading-5;
 
         .money-heading {
           margin-left: .3rem;
           padding-right: .3rem;
-          border-right: 1px solid #0177FD;
+          border-right: 1px solid $brand-primary;
         }
 
         .dollar {
-          color: #A4B4CB;
+          color: $color-gray;
         }
       }
     }
 
     .astrid {
       margin-top: 2rem;
-      display: flex;
-      justify-content: space-between;
+      @extend %body-flexbox;
       align-items: center;
 
       .hayes {
-        display: flex;
-        justify-content: space-between;
+        @extend %body-flexbox;
         align-items: center;
       }
 
       .name {
-        font-size: var(--body-text);
+        font-size: $body-text;
         margin-left: .2rem;
       }
     }
 
     .send-btn {
-      background: #0177FB;
+      background: $brand-primary;
       border-radius: 16.0875px;
-      color: #FFFFFF;
-      font-size: var(--body-text);
+      color: $color-white;
+      font-size: $body-text;
       margin-top: 1rem;
       padding: 1rem;
       text-align: center;
@@ -154,42 +204,36 @@
     .quick-transfer {
       margin-top: 2rem;
       padding: 1rem;
-      background: #FFFFFF;
+      background: $color-white;
       border: 0.566969px solid #E8E8E8;
       border-radius: 10.2375px;
 
       .transfer {
-        font-size: var(--body-text);
+        font-size: $body-text;
       }
 
       .money-card-box {
-        display: flex;
+        @extend %body-flexbox;
         padding-top: 1rem;
-        // box-shadow: 0px 10.9688px 21.9375px rgba(122, 122, 122, 0.2);
         border-radius: 10.2375px;
-        justify-content: space-between;
         align-content: center;
 
         .debit {
-          // display: flex;
           align-self: center;
-          font-size: var(--body-text-smaller);
+          font-size: $body-text-smaller;
         }
 
         .debit-box {
-          display: flex;
+          @extend %body-flexbox;
           align-items: baseline;
-          // align-content: center;
-          justify-content: space-between;
           gap: .5rem;
         }
 
         .amount {
-          display: flex;
+          @extend %body-flexbox;
           align-items: baseline;
-          justify-content: space-between;
           gap: .5rem;
-          font-size: var(--body-text);
+          font-size: $body-text;
         }
       }
 
@@ -198,29 +242,26 @@
         display: flex;
         flex-direction: column;
         padding: .5rem;
-        box-shadow: 0px 10.9688px 21.9375px rgba(122, 122, 122, 0.2);
+        box-shadow: $body-box-shadow;
         border-radius: 10.2375px;
 
         .amount {
           display: flex;
 
           .input {
-            // margin-left: .5rem;
             color: #798BA3;
-            font-size: var(--body-text-small);
+            font-size: $body-text-small;
           }
         }
 
         .flags-box {
           margin-top: .5rem;
-          display: flex;
-          justify-content: space-between;
-          font-size: var(--body-text-large);
+          @extend %body-flexbox;
+          font-size: $body-text-large;
 
           .money-heading {
-            // margin-left: .3rem;
             padding-right: .3rem;
-            border-right: 1px solid #0177FD;
+            border-right: 1px solid $brand-primary;
           }
 
           .dollar {
@@ -236,7 +277,7 @@
         grid-template-rows: auto;
         overflow-x: auto;
         grid-template-areas: "send receive invoicing more";
-        font-size: var(--body-text-small);
+        font-size: $body-text-small;
         text-align: center;
 
         .send {
@@ -273,18 +314,11 @@
       .money-flow {
         margin-right: 3rem;
 
+        @extend %body-heading;
+
         .heading {
-          display: flex;
-          justify-content: space-between;
-
-          .title {
-            color: #141736;
-            font-weight: bold;
-            line-height: 19px;
-
-          }
           
-          img:first-child {
+          & img:first-child {
             margin-right: 1rem;
             padding-bottom: .4rem;
           }
@@ -294,12 +328,10 @@
         .savings {
 
           .savings-flow {
-            display: flex;
-            justify-content: space-between;
+            @extend %body-flexbox;
 
             .amount {
-              display: flex;
-              justify-content: space-between;
+              @extend %body-flexbox;
               align-items: center;
               
               img {
@@ -329,20 +361,11 @@
       }
 
       .recent-contact {
-    
+        @extend %body-heading;
 
         .heading {
-          display: flex;
-          justify-content: space-between;
-
-          .title {
-            color: #141736;
-            font-weight: bold;
-            line-height: 19px;
-
-          }
-          
-          img:first-child {
+            
+          & img:first-child {
             margin-right: 1rem;
 
           }
@@ -353,8 +376,94 @@
           font-size: .8rem;
         }
 
-        .card-img {
-          margin-left: -2rem;
+        .users {
+          @extend %body-flexbox;
+          width: 18rem;
+
+          .chevron-right {
+            @extend %body-chevron;
+          }
+
+        }
+
+        .card {
+          @extend %body-card-san-flex;
+          width: 70%;
+          height: 48%;
+          margin: 0;
+          margin-top: 1rem;
+          padding: 2rem;
+
+          span:first-child {
+            color: $color-gray;
+          }
+
+          span:last-child {
+            padding-left: 1rem;
+            font-weight: bold;
+          }
+
+          .num-user {
+            margin-top: 1rem;
+            position: relative;
+
+            .img {
+              border: 4px solid $color-white;
+              margin-left: -.9rem;
+              z-index: -1;
+              border-radius: $border-radius-circular;
+            }
+
+            .five-chat {
+              .five {
+                position: absolute;
+                right: 4rem;
+                padding: .6rem .7rem;
+                color: $brand-primary;
+                font-weight: bold;
+                margin-left: 3rem;
+                border: 2px dashed $brand-primary-light-trans;
+                border-radius: $border-radius-circular;
+              }
+              img {
+                position: absolute;
+                top: 1rem;
+                left: 12rem;
+                border: none;
+                border-radius: 0;
+              }
+
+              .dot {
+                @extend %noti-indicator;
+                position: absolute;
+                right: -.1rem;
+                top: .1rem;
+                color: red;
+              }
+
+            }
+            
+
+            .a-user {
+              @extend %body-flexbox;
+
+              img {
+                width: 4rem;
+                height: 4rem;
+              }
+
+              .name-amount {
+                margin-left: -3rem;
+                margin-top: .7rem;
+              }
+
+              .chevron-right {
+               @extend %body-chevron;
+               margin-top: 1.5rem;
+              }
+            }
+          }
+         
         }
       
       }
@@ -362,34 +471,26 @@
     }
 
     .transaction {
-      margin-top: -3rem;
-      
-      .heading {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 1rem;
-
-        .title {
-          line-height: 17px;
-          font-weight: bold;;
-        }
-      }
+      margin-top: 2.5rem;
+      @extend %body-heading;
 
       .table {
-        display: flex;
+        @extend %body-flexbox;
         flex-direction: column;
-        justify-content: space-between;
 
       }
       .col {
-        display: flex;
-        margin-bottom: .2rem;
-        justify-content: space-between;
+        @extend %body-flexbox;
+        margin-bottom: .6rem;
 
-        // img {
-        //   height: 2rem;
-        //   width: 2rem;
-        // }
+        img {
+          margin-top: -.4rem;
+          height: 2.5rem;
+        }
+
+        p {
+          color: #343744;
+        }
 
         .name {
           margin-left: -3rem;
@@ -408,13 +509,13 @@
         }
 
         .success {
-          color: #61BB84;
-          background: #EBFFF3;
+          color: $color-success;
+          background: $color-success-light;
         }
 
         .pending {
-          color: #FFAA90;
-          background: #FFF1ED;
+          color: $color-accent;
+          background: $color-accent-light;
         }
 
       }
@@ -425,7 +526,7 @@
       margin-top: 1rem;
       margin-bottom: 3rem;
       padding: 1.4rem 2.5rem;
-      box-shadow: 0px 10.9688px 21.9375px rgba(122, 122, 122, 0.2);
+      box-shadow: $body-box-shadow;
       border-radius: 10.2375px;
 
       .title {
@@ -437,8 +538,7 @@
       }
 
       .icon-amount {
-        display: flex;
-        justify-content: space-between;
+        @extend %body-flexbox;
         align-content: center;
         margin-top: 1rem;
 

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;700&display=swap');
+@import 'partials/variables';
 
 * {
   margin: 0;
@@ -6,12 +7,12 @@
 }
 
 :root {
-  --body-text-x-larger: 18px;
-  --body-text-larger: 16px;
-  --body-text-large: 14px;
-  --body-text: 12px;
-  --body-text-small: 10px;
-  --body-text-smaller: 9px;
-  --body-text-smallest: 8px;
-  --heading-5: 21px;
+  // --body-text-x-larger: 18px;
+  // --body-text-larger: 16px;
+  // --body-text-large: 14px;
+  // --body-text: 12px;
+  // --body-text-small: 10px;
+  // --body-text-smaller: 9px;
+  // --body-text-smallest: 8px;
+  // --heading-5: 21px;
 }
