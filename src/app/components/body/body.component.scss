@@ -19,7 +19,8 @@
 
     .title {
       line-height: 17px;
-      font-weight: bold;;
+      font-weight: $text-semi-bold;
+      color: $title-color;
     }
   }
 }
@@ -47,47 +48,54 @@
 
 .body {
   display: grid;
+  padding: .2rem 2rem;
   min-height: 90vh;
   grid-template-columns:  270px auto;
   grid-template-rows: auto auto;
-  grid-template-areas: "head head" "card flow";
+  grid-template-areas: "head head" "my-card flow";
  
   .head {
-    @extend %body-flexbox;
-    justify-content: fl;
     grid-area: head;
-    font-size: $body-text-x-larger;
-    padding: .5rem;
-    margin: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    background: $color-white;
-    width: 95%;
 
-    & .icons {
-      img:nth-child(2) {
-        position: relative;
-        padding: .3rem 2rem;
-      }
+    .navbar-brand {
+      font-weight: $text-bold;
+    }
+    .position-absolute {
+      @extend %noti-indicator
+    }
 
-      span {
-        @extend %noti-indicator;
-
-      }
+    .avater {
+      width: 30px;
+      height: 30px;
     }
   }
 
-  .card {
-    grid-area: card;
-    margin-left: 1rem;
+  .my-card {
+    grid-area: my-card;
     padding: 1rem;
     padding-top: 0;
+    border: none;
+
+    input {
+      width: 9rem;
+      border: hidden;
+    }
+
+    input:focus {
+      outline: none !important;
+    }
+
+    select {
+      border: none;
+    }
+
+    select:focus {
+      outline: none;
+    }
 
     .money {
-      font-size: $body-text-larger;
-      padding: .5rem;
-      margin-top: 1rem;
+      color: $title-color;
+      font-weight: $text-semi-bold;
     }
 
     .ticket-card {
@@ -134,6 +142,7 @@
 
       .amount {
         @extend %body-flexbox;
+        border: none;
         align-items: baseline;
         gap: .5rem;
         font-size: $body-text;
@@ -192,13 +201,12 @@
     }
 
     .send-btn {
-      background: $brand-primary;
       border-radius: 16.0875px;
       color: $color-white;
-      font-size: $body-text;
       margin-top: 1rem;
       padding: 1rem;
       text-align: center;
+      cursor: pointer;
     }
 
     .quick-transfer {
@@ -214,11 +222,15 @@
 
       .money-card-box {
         @extend %body-flexbox;
-        padding-top: 1rem;
+        padding-top: rem;
         border-radius: 10.2375px;
         align-content: center;
+        border: 0.566969px solid $color-border;
+        border-radius: 6.80363px;
+        padding: .5rem;
 
         .debit {
+          color: $color-gray-2;
           align-self: center;
           font-size: $body-text-smaller;
         }
@@ -231,6 +243,7 @@
 
         .amount {
           @extend %body-flexbox;
+          color: $color-gray-2;
           align-items: baseline;
           gap: .5rem;
           font-size: $body-text;
@@ -242,8 +255,8 @@
         display: flex;
         flex-direction: column;
         padding: .5rem;
-        box-shadow: $body-box-shadow;
-        border-radius: 10.2375px;
+        border: 1.7px solid $color-border-blue;
+        border-radius: 7.93757px;
 
         .amount {
           display: flex;
@@ -273,12 +286,18 @@
       .icons {
         display: grid;
         grid-template-columns: repeat(4, 40px);
-        column-gap: 5px;
+        column-gap: .8rem;
         grid-template-rows: auto;
         overflow-x: auto;
         grid-template-areas: "send receive invoicing more";
         font-size: $body-text-small;
         text-align: center;
+        margin-top: 1rem;
+
+        .text {
+          color: $color-gray-2;
+          font-size: $body-text-smaller;
+        }
 
         .send {
           grid-area: send;
@@ -319,7 +338,7 @@
         .heading {
           
           & img:first-child {
-            margin-right: 1rem;
+            margin-right: 1.2rem;
             padding-bottom: .4rem;
           }
 
@@ -336,6 +355,19 @@
               
               img {
                 margin-right: 1rem;
+              }
+
+              span {
+                font-size: $body-text-small;
+                padding-right: 1rem;
+
+              }
+
+              span:last-child {
+                font-size: $body-text-small;
+                color: $color-gray;
+                font-weight:  $text-semi-bold;
+           
               }
             }
 
@@ -362,6 +394,7 @@
 
       .recent-contact {
         @extend %body-heading;
+        width: inherit !important;;
 
         .heading {
             
@@ -373,12 +406,17 @@
         }
 
         .dsc {
-          font-size: .8rem;
+          font-size: $body-text-small;
+          color: $color-gray;
+          margin-top: -1rem;
+          
         }
 
         .users {
           @extend %body-flexbox;
-          width: 18rem;
+          width: inherit;
+          padding-top: 1rem;
+          position: relative;    
 
           .chevron-right {
             @extend %body-chevron;
@@ -386,21 +424,31 @@
 
         }
 
+        .border-bottom {
+          position: absolute;
+          border: 2px solid $brand-primary;
+          padding-left: 1.5rem;
+          top: 11rem;
+          left: 82%;
+       
+        }
+
         .card {
           @extend %body-card-san-flex;
-          width: 70%;
-          height: 48%;
+          width: inherit;
+          height: auto;
           margin: 0;
-          margin-top: 1rem;
-          padding: 2rem;
+          margin-top: 2rem;
+          padding: 1rem 2rem;
 
           span:first-child {
             color: $color-gray;
+            font-weight: $text-bold;
           }
 
           span:last-child {
-            padding-left: 1rem;
-            font-weight: bold;
+            padding-left: .3rem;
+            font-weight: $text-bold;
           }
 
           .num-user {
@@ -414,47 +462,41 @@
               border-radius: $border-radius-circular;
             }
 
-            .five-chat {
-              .five {
-                position: absolute;
-                right: 4rem;
-                padding: .6rem .7rem;
-                color: $brand-primary;
-                font-weight: bold;
-                margin-left: 3rem;
-                border: 2px dashed $brand-primary-light-trans;
-                border-radius: $border-radius-circular;
-              }
-              img {
-                position: absolute;
-                top: 1rem;
-                left: 12rem;
-                border: none;
-                border-radius: 0;
-              }
+            .five {
+              padding: .3rem .5rem;
+              color: $brand-primary;
+              border: 2px dashed $brand-primary-light-trans;
+              border-radius: $border-radius-circular;
+            }
 
-              .dot {
-                @extend %noti-indicator;
-                position: absolute;
-                right: -.1rem;
-                top: .1rem;
-                color: red;
-              }
+            .chat {
+             padding-top: 1rem
+          
+            }
 
+            .dot {
+              @extend %noti-indicator;
+              position: absolute;
+              right: -.1rem;
+              top: .1rem;
             }
             
 
             .a-user {
-              @extend %body-flexbox;
+              margin-left: -.5rem;
 
               img {
-                width: 4rem;
-                height: 4rem;
+                width: 3rem;
+                height: 3rem;
               }
 
-              .name-amount {
-                margin-left: -3rem;
-                margin-top: .7rem;
+              .name {
+                font-weight: $text-bold;
+
+                p:last-child {
+                  color: $color-gray;
+                }
+
               }
 
               .chevron-right {

@@ -1,15 +1,18 @@
 <div class="body">
-  <div class="head">
-    <h2>My Card</h2>
-    <div class="icons">
+  
+  <div class="head ">
+    <nav class="navbar navbar-light pb-3">
+      <a class="navbar-brand">My Card</a>
+      <div class="postion-relative">
       <img src="../../../assets/icons/search2.png" alt="icon" />
-      <img src="../../../assets/icons/notification.png" alt="icon" />
-      <img src="../../../assets/icons/user1.png" alt="icon" />
-      <span></span>
-    </div>
+      <img src="../../../assets/icons/notification.png" alt="icon" class="px-4"/>
+      <span class="position-absolute"></span>
+      <img src="../../../assets/icons/user1.png" alt="icon" class="avater" />
+      </div>
+    </nav>
   </div>
 
-  <div class="card">
+  <div class="my-card">
     <div class="ticket-card">
       <div class="name-label">Name</div>
       <div class="name">Carla Rosser</div>
@@ -19,17 +22,18 @@
       </div>
       <div class="date">08/23</div>
     </div>
-    <div class="money">Send Money</div>
+    <div class="py-3 money">Send Money</div>
     <div class="money-card">
       <div class="debit-box">
         <img src="../../../assets/icons/debit.png" alt="icon" />
         <div class="debit">Debit</div>
       </div>
+      <div>
+      </div>
       <div class="amount">
-        <div>$ 10.680</div>
-        <div>
-          <img src="../../../assets/icons/Vector.png" alt="icon" />
-        </div>
+        <select id="duration" name="cars">
+          <option value="weekly">$ 10.680</option>
+        </select>
       </div>
     </div>
     <div class="amount-card">
@@ -39,7 +43,9 @@
       </div>
       <div class="flags-box">
         <div>
-          <span class="dollar">$</span><span class="money-heading">800.00</span>
+          <span class="dollar">$
+          <input type="" value="800.00">
+          </span>
         </div>
         <img src="../../../assets/icons/flags.png" alt="icon" />
       </div>
@@ -51,18 +57,20 @@
       </div>
       <img src="../../../assets/icons/plus.png" alt="icon" />
     </div>
-    <div class="send-btn">Send Money</div>
+    <div class="send-btn btn-primary">Send Money</div>
     <div class="quick-transfer">
-      <div class="transfer">Quick Transfer</div>
+      <div class="transfer mb-2">Quick Transfer</div>
       <div class="money-card-box">
         <div class="debit-box">
           <img src="../../../assets/icons/debit.png" alt="icon" />
           <div class="debit">Debit</div>
         </div>
         <div class="amount">
-          <div>$ 10,432</div>
+          
           <div>
-            <img src="../../../assets/icons/Vector.png" alt="icon" />
+            <select id="duration" name="cars">
+              <option value="weekly">$ 10.680</option>
+            </select>
           </div>
         </div>
       </div>
@@ -71,26 +79,26 @@
           <div class="input">Enter amount</div>
         </div>
         <div class="flags-box">
-          <div><span class="money-heading">$1,24</span></div>
+          <input type="" value="$1,24">
           <img src="../../../assets/icons/group-pics.png" alt="icon" />
         </div>
       </div>
       <div class="icons">
         <div class="send">
           <img src="../../../assets/icons/send.png" alt="icon" />
-          <div>Send</div>
+          <div class="text">Send</div>
         </div>
         <div class="receive">
           <img src="../../../assets/icons/receive.png" alt="icon" />
-          <div>Receive</div>
+          <div class="text">Receive</div>
         </div>
         <div class="invoicing">
           <img src="../../../assets/icons/invoicing.png" alt="icon" />
-          <div>Invoicing</div>
+          <div class="text" >Invoicing</div>
         </div>
         <div class="more">
           <img src="../../../assets/icons/more.png" alt="icon" />
-          <div>More</div>
+          <div class="text">More</div>
         </div>
       </div>
     </div>
@@ -110,13 +118,13 @@
             <div class="amount">
               <img src="../../../assets/icons/circularflow.png" alt="icon">
               <span>Savings</span>
-              <img src="../../../assets/icons/flow.png" alt="icon" />
+              <img src="../../../assets/icons/blueflow.png" alt="icon" />
               <span>+6,79%</span>
             </div>
   
             <div class="weekly">
               <select id="duration" name="cars">
-                <option value="weekly">weekly</option>
+                <option value="weekly">week</option>
               </select>
             </div>
           </div>
@@ -137,31 +145,43 @@
         <div class="users">
           <img src="../../../assets/icons/user1.png" alt="icon" />
           <img src="../../../assets/icons/avater.png" alt="icon" />
-          <img src="../../../assets/icons/user3.png" alt="icon" />
           <img src="../../../assets/icons/user4.png" alt="icon" />
+          <img src="../../../assets/icons/user3.png" alt="icon" />
           <img src="../../../assets/icons/user2.png" alt="icon" />
+
           <img src="../../../assets/icons/vector2.png" alt="icon" class="chevron-right" />
         </div>
+        <p class="border-bottom"></p>
         <div class="card">
           <div>
             <span>Group</span>
             <span>Party</span>
           </div>
           <div class="num-user">
-            <img src="../../../assets/icons/user3.png" alt="icon" class="img" />
-            <img src="../../../assets/icons/user4.png" alt="icon" class="img" />
-            <img src="../../../assets/icons/user2.png" alt="icon" class="img" />
-            <span class="five-chat">
-              <span class="five">+5</span>
-              <img src="../../../assets/icons/chat.png" alt="icon" />
-              <span class="dot"></span>
-            </span>
-            <div class="a-user">
-              <img src="../../../assets/icons/Ellipse 357.png" alt="icon" />
-              <div class="name-amount">
-                <p>Dakota Milk</p>
-                <p>$ 420.00</p>
+            <div class="d-flex justify-content-between">
+              <div>
+                <img src="../../../assets/icons/user3.png" alt="icon" class="img" />
+                <img src="../../../assets/icons/user4.png" alt="icon" class="img" />
+                <img src="../../../assets/icons/user2.png" alt="icon" class="img" />
               </div>
+              <span class="five">+5</span>
+              <div>
+                <img src="../../../assets/icons/chat.png" alt="icon" class="chat" />
+                <span class="dot"></span>
+              </div>
+              
+            </div>
+
+            <div class="a-user pt-2 d-flex justify-content-between">
+              <div class="d-flex justify-content-between">
+                <img src="../../../assets/icons/Ellipse 357.png" alt="icon" />
+                <div class="px-3 name">
+                  <p class="p-0 m-0">Dakota Milk</p>
+                  <p>$ 420.00</p>
+                </div>
+              </div>
+              
+   
               <img src="../../../assets/icons/vector2.png" alt="icon" class="chevron-right" />
 
 
@@ -178,7 +198,8 @@
     <div class="transaction">
       <div class="heading">
         <p class="title">Recent Transactions</p>
-        <img src="../../../assets/icons/viewall.png" alt="icon" />
+        <p>View all <img src="../../../assets/icons/vector2.png" alt="icon"></p>
+        
       </div>
       <div class="table">
         <div class="col">
