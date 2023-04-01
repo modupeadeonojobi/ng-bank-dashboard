@@ -50,12 +50,19 @@
   display: grid;
   padding: .2rem 2rem;
   min-height: 90vh;
-  grid-template-columns:  270px auto;
-  grid-template-rows: auto auto;
-  grid-template-areas: "head head" "my-card flow";
+  gap: 1.5rem;
+  grid-template-areas: 
+    "head" 
+    "my-card" 
+    "money-flow"
+    "recent-contact"
+    "transaction"
+    "statistics";
  
   .head {
     grid-area: head;
+    // position: fixed;
+    // padding-bottom: 3rem;
 
     .navbar-brand {
       font-weight: $text-bold;
@@ -321,269 +328,253 @@
 
   }
 
-  .flow {
-    grid-area: flow;
-    padding-left: 2rem;
-    padding-right: 1.5rem;
+  .money-flow {
+    grid-area: money-flow;
+    // margin-right: 3rem;
 
-    .flow-contact {
-      display: grid;
-      grid-template-columns: 59% auto;
+    @extend %body-heading;
 
-      .money-flow {
-        margin-right: 3rem;
-
-        @extend %body-heading;
-
-        .heading {
-          
-          & img:first-child {
-            margin-right: 1.2rem;
-            padding-bottom: .4rem;
-          }
-
-        }
-
-        .savings {
-
-          .savings-flow {
-            @extend %body-flexbox;
-
-            .amount {
-              @extend %body-flexbox;
-              align-items: center;
-              
-              img {
-                margin-right: 1rem;
-              }
-
-              span {
-                font-size: $body-text-small;
-                padding-right: 1rem;
-
-              }
-
-              span:last-child {
-                font-size: $body-text-small;
-                color: $color-gray;
-                font-weight:  $text-semi-bold;
-           
-              }
-            }
-
-            .weekly {
-
-              select {
-                border: 0.73125px solid #E5E9F4;
-                border-radius: 19.9443px;
-                padding: .5rem;
-              }
-
-            }
-          }
-
-          .chart img {
-            width: 100%;
-          }
-
-
-        }
-       
-
+    .heading {
+      
+      & img:first-child {
+        margin-right: 1.2rem;
+        padding-bottom: .4rem;
       }
 
-      .recent-contact {
-        @extend %body-heading;
-        width: inherit !important;;
+    }
 
-        .heading {
-            
-          & img:first-child {
-            margin-right: 1rem;
+    .savings {
 
-          }
+      .savings-flow {
+        @extend %body-flexbox;
 
-        }
-
-        .dsc {
-          font-size: $body-text-small;
-          color: $color-gray;
-          margin-top: -1rem;
-          
-        }
-
-        .users {
+        .amount {
           @extend %body-flexbox;
-          width: inherit;
-          padding-top: 1rem;
-          position: relative;    
-
-          .chevron-right {
-            @extend %body-chevron;
+          align-items: center;
+          
+          img {
+            margin-right: 1rem;
           }
 
-        }
+          span {
+            font-size: $body-text-small;
+            padding-right: 1rem;
 
-        .border-bottom {
-          position: absolute;
-          border: 2px solid $brand-primary;
-          padding-left: 1.5rem;
-          top: 11rem;
-          left: 82%;
-       
-        }
-
-        .card {
-          @extend %body-card-san-flex;
-          width: inherit;
-          height: auto;
-          margin: 0;
-          margin-top: 2rem;
-          padding: 1rem 2rem;
-
-          span:first-child {
-            color: $color-gray;
-            font-weight: $text-bold;
           }
 
           span:last-child {
-            padding-left: .3rem;
-            font-weight: $text-bold;
+            font-size: $body-text-small;
+            color: $color-gray;
+            font-weight:  $text-semi-bold;
+        
           }
-
-          .num-user {
-            margin-top: 1rem;
-            position: relative;
-
-            .img {
-              border: 4px solid $color-white;
-              margin-left: -.9rem;
-              z-index: -1;
-              border-radius: $border-radius-circular;
-            }
-
-            .five {
-              padding: .3rem .5rem;
-              color: $brand-primary;
-              border: 2px dashed $brand-primary-light-trans;
-              border-radius: $border-radius-circular;
-            }
-
-            .chat {
-             padding-top: 1rem
-          
-            }
-
-            .dot {
-              @extend %noti-indicator;
-              position: absolute;
-              right: -.1rem;
-              top: .1rem;
-            }
-            
-
-            .a-user {
-              margin-left: -.5rem;
-
-              img {
-                width: 3rem;
-                height: 3rem;
-              }
-
-              .name {
-                font-weight: $text-bold;
-
-                p:last-child {
-                  color: $color-gray;
-                }
-
-              }
-
-              .chevron-right {
-               @extend %body-chevron;
-               margin-top: 1.5rem;
-              }
-            }
-          }
-         
         }
+
+        .weekly {
+
+          select {
+            border: 0.73125px solid #E5E9F4;
+            border-radius: 19.9443px;
+            padding: .5rem;
+          }
+
+        }
+      }
+
+      .chart img {
+        width: 100%;
+      }
+
+
+    }
+    
+
+  }
+
+  .recent-contact {
+    grid-area: recent-contact;
+    @extend %body-heading;
+    // width: inherit !important;;
+
+    .heading {
+        
+      & img:first-child {
+        margin-right: 1rem;
+
+      }
+
+    }
+
+    .dsc {
+      font-size: $body-text-small;
+      color: $color-gray;
+      margin-top: -1rem;
       
+    }
+
+    .users {
+      @extend %body-flexbox;
+      width: inherit;
+      padding-top: 1rem;
+      position: relative;    
+
+      .chevron-right {
+        @extend %body-chevron;
       }
 
     }
 
-    .transaction {
-      margin-top: 2.5rem;
-      @extend %body-heading;
-
-      .table {
-        @extend %body-flexbox;
-        flex-direction: column;
-
-      }
-      .col {
-        @extend %body-flexbox;
-        margin-bottom: .6rem;
-
-        img {
-          margin-top: -.4rem;
-          height: 2.5rem;
-        }
-
-        p {
-          color: #343744;
-        }
-
-        .name {
-          margin-left: -3rem;
-        }
-
-        .date {
-          margin-left: -1.5rem;
-
-        }
-
-        .btn {
-          width: 7rem;
-          height: 2rem;
-          border-radius: 5px;
-          border: none;
-        }
-
-        .success {
-          color: $color-success;
-          background: $color-success-light;
-        }
-
-        .pending {
-          color: $color-accent;
-          background: $color-accent-light;
-        }
-
-      }
-
+    .border-bottom {
+      position: absolute;
+      border: 2px solid $brand-primary;
+      padding-left: 1.5rem;
+      top: 4rem;
+      right: 7rem;
+    
     }
 
-    .statistics {
-      margin-top: 1rem;
-      margin-bottom: 3rem;
-      padding: 1.4rem 2.5rem;
-      box-shadow: $body-box-shadow;
-      border-radius: 10.2375px;
+    .card {
+      @extend %body-card-san-flex;
+      // width: inherit;  
+      height: auto;
+      margin: 0;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
 
-      .title {
-        font-size: 16.0875px;
-        line-height: 19px;
-        color: #343744;
-        font-weight: bold;
-
+      span:first-child {
+        color: $color-gray;
+        font-weight: $text-bold;
       }
 
-      .icon-amount {
-        @extend %body-flexbox;
-        align-content: center;
+      span:last-child {
+        padding-left: .3rem;
+        font-weight: $text-bold;
+      }
+
+      .num-user {
         margin-top: 1rem;
+        position: relative;
 
+        .img {
+          border: 4px solid $color-white;
+          margin-left: -.9rem;
+          z-index: -1;
+          border-radius: $border-radius-circular;
+        }
+
+        .five {
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          padding: .5rem .6rem;
+          color: $brand-primary;
+          border: 2px dashed $brand-primary-light-trans;
+          border-radius: $border-radius-circular;
+        }
+
+        .chat {
+          padding-top: 1rem
+      
+        }
+
+        .dot {
+          @extend %noti-indicator;
+          position: absolute;
+          right: -.1rem;
+          top: .1rem;
+        }
+        
+
+        .a-user {
+          margin-left: -.5rem;
+
+          img {
+            width: 3rem;
+            height: 3rem;
+          }
+
+          .name {
+            font-weight: $text-bold;
+
+            p:last-child {
+              color: $color-gray;
+            }
+
+          }
+
+          .chevron-right {
+            @extend %body-chevron;
+            margin-top: 1.5rem;
+          }
+        }
+      }
+      
+    }
+  
+  }
+
+  .transaction {
+    grid-area: transaction;
+    @extend %body-heading;
+
+    .table {
+      margin-left: -1rem;
+
+      img {
+        margin-top: -.4rem;
+        height: 2.5rem;
+      }
+      .btn {
+        font-size: $body-text-large;
+        padding: .2rem 1rem;
+        border-radius: 5px;
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+
+      .success {
+        color: $color-success;
+        background: $color-success-light;
+      }
+
+      .pending {
+        color: $color-accent;
+        background: $color-accent-light;
+      } 
+
+    }
+  }
+
+  .statistics {
+    grid-area: statistics;
+    margin-bottom: 3rem;
+    padding: .3rem 1rem;
+    box-shadow: $body-box-shadow;
+    border-radius: 10.2375px;
+
+    .title {
+      font-size: 16.0875px;
+      line-height: 19px;
+      font-weight: $text-bold;
+      padding: 1rem 0;
+
+    }
+
+    .icon-amount {
+      .last-img {
+        margin-right: 10rem;
+      }
+
+      .position-absolute {
+        top: 0.3rem;
+        left: 4.5rem;
+
+        p:last-child {
+          font-size: $body-text-small;
+          color: $color-gray-2;
+        }
       }
 
     }
@@ -591,3 +582,65 @@
 
   }
 }
+
+@media (max-width: 480px) {
+  .body {
+    padding: 0;
+    grid-template-areas: 
+      "head head"
+      "my-card money-flow" 
+      "my-card money-flow"
+      "my-card recent-contact"
+      "transaction transaction"
+      "statistics statistics";
+
+    .my-card {
+      padding: 0;
+    }
+  }
+
+
+
+  .statistics{
+    display: none;;
+  }
+}
+
+   /* Media Query for low resolution  Tablets, Ipads */
+   @media (min-width: 481px) and (max-width: 767px) {
+    body {
+        background-color: yellow;
+    }
+}
+  
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px){
+    body {
+        background-color: blue;
+    }
+}
+
+@media (min-width: 50rem) {
+  .body {
+    grid-template-areas: 
+      "head head head head"
+      "my-card money-flow money-flow recent-contact" 
+      "my-card transaction transaction transaction"
+      "my-card statistics statistics statistics"
+      ;
+  }
+}
+
+//    /* Media Query for low resolution  Tablets, Ipads */
+//    @media (min-width: 481px) and (max-width: 767px) {
+//     body {
+//         background-color: yellow;
+//     }
+// }
+  
+// /* Media Query for Tablets Ipads portrait mode */
+// @media (min-width: 768px) and (max-width: 1024px){
+//     body {
+//         background-color: blue;
+//     }
+// }
